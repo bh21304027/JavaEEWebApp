@@ -10,7 +10,7 @@ public abstract class ApplicationControllerFactory{
         ApplicationController app = null;
         Properties prop = new Properties();
         try{
-            prop.load(new FileInputStream("C:/pleiades/workspace/Anodidas2/WebContent/properties/app.properties"));
+            prop.load(new FileInputStream("/home/ec2-user/JavaEEWebApp/WebContent/properties/app.properties"));
 
             String name = prop.getProperty("web");
 
