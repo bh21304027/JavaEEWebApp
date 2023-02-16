@@ -1,0 +1,133 @@
+@charset "utf-8";
+/*.money1{
+    text-align: right;
+}
+.various{
+    margin:20px;
+}*/
+
+main{
+	padding: 50px;
+	padding-left: 80px;
+	padding-right: 80px;
+}
+
+.flex{
+	display: flex;
+}
+.flex1{
+	display: flex;
+	height: 60px;
+	line-height: 50px;
+	border-bottom: 1px solid #BFC5CA;
+	background: #FFF;
+	padding: 0 10px;
+}
+.pay{
+	margin: 0 0 0 80px;
+	padding: 10px;
+	display:flex;
+  	flex-flow: column;
+	background: #ebeaea;
+}
+.products{
+	margin-left: 30px;
+}
+.product{
+	font-size: auto;
+}
+.paypay{
+	margin-bottom: 10px;
+}
+.addi{
+	padding:10px;
+	margin-bottom:15px;
+	border:2px solid #BFC5CA;
+	display:inline-block;
+}
+.club{
+	font-size: 1.0em;
+}
+h3{
+	margin: 0px;
+	font-size:20px;
+}
+/*ボタン購入手続きの*/
+
+.button {
+    background: #6bb6ff;
+    border-radius: 3px;
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 280px;
+    padding: 15px 100px;
+    color: #FFF;
+    transition: 0.3s ease-in-out;
+    font-weight: 500;
+}
+.button:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  bottom: 0;
+  right: 2rem;
+  font-size: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: right 0.3s;
+  width: 6px;
+  height: 6px;
+  border-top: solid 2px currentColor;
+  border-right: solid 2px currentColor;
+  transform: translateY(-50%) rotate(45deg);
+}
+.button:hover {
+  background: #5895d2;
+  color: #FFF;
+}
+.button:hover:after {
+  right: 1.4rem;
+}
+.span{
+	vertical-align: middle;
+}
+
+.formula{
+	margin:0 0 0 auto;
+}
+.table{
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+.table-img,
+.table-txt{
+
+  width: 300px;
+}
+.texttype{
+	font-size:15px;
+	position: relative;
+    bottom: 30px;
+    right: 90px
+
+}
+.texttype2{
+	position: relative;
+    right: 160px
+}
+.texttype3{
+	position: relative;
+	bottom: 60px;
+    left: 130px;
+}
+.texttype4{
+	position: relative;
+	bottom: 60px;
+    left: 160px;
+}
+
+

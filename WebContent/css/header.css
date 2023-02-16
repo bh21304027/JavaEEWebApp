@@ -1,0 +1,487 @@
+.html
+{
+	font-size: 100%;
+}
+.body
+{
+	font-family: "Yu Gothic Medium", "游ゴシック Medium",
+	"YuGothic", "游ゴシック体", "ヒラギノ角ゴ Pro W3", "sans-serif";
+
+	line-height: 1.7;
+	color: #432;
+}
+.a
+{
+	text-decoration: none;
+}
+.img
+{
+	max-width: 100%;
+}
+:focus {
+    outline: none;
+}
+
+body {
+    background: #fff;
+    font-family: helvetica, arial, serif;
+    font-size: 13px;
+    text-transform: uppercase;
+    text-align: center;
+    font-family: "Yu Gothic Medium", "游ゴシック Medium",
+	"YuGothic", "游ゴシック体", "ヒラギノ角ゴ Pro W3", "sans-serif";
+  margin: 0px;
+    padding: 0px;
+  }
+header{
+
+  background-color: #000;
+}
+
+  .icon{
+  margin:auto;
+  }
+  /*上の部分のヘッダー*/
+  .header-div{
+    background: linear-gradient(to right, #0000, #3a3a3a);
+  }
+  .header-a{
+    text-decoration: none;
+   color: #ffff;
+   font-size: 10px;
+  }
+  .header-ul{
+    list-style: none;
+   margin: auto auto auto 1000px;
+   display: flex;
+  }
+.header-li{
+  margin: 0 0 0 15px;
+   font-size: 14px;
+   list-style-type: none;
+
+   color: #ffff;
+   flex-grow: 1;
+   text-align: center;
+
+}
+.header-li li+li{
+  border-left: 1px solid #ffff;
+}
+.pc-nav{
+  margin: 0 0 0 auto;
+}
+
+
+  /* .logo */
+
+  header .logo {
+    position: relative;
+    width: 100px;
+    margin: 0;
+    padding: 0;
+  }
+  header .logo a {
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+  }
+
+
+  @media screen and (max-width: 767px) {
+    header .logo {
+      padding: 0;
+    }
+  }
+
+  header .navi {
+    margin: 0 0 0 auto;
+    padding: 0;
+    font-size: 14px;
+    font-weight: bold;
+    display: flex;
+    list-style: none;
+  }
+  header .navi li {
+    margin: 5px 0 5px 40px;
+  }
+  header .navi li:first-child {
+    margin-left: 0;
+  }
+  header .navi li a {
+    display: block;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: #333;
+  }
+  header .navi li a:hover {
+    text-decoration: underline;
+  }
+
+  @media screen and (max-width: 767px) {
+    header .navi {
+      display: none;
+    }
+  }
+
+  /* open-button */
+
+  .sp-navi-toggle {
+    display: none;
+    margin: auto 0;
+    font-size: 10px;
+    font-weight: bold;
+    line-height: 1;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 40px;
+    width: 16px;
+    height: 25px;
+    transition: all 0.4s;
+    color: #464646;
+    border: none;
+    outline: none;
+    background: none;
+  }
+  .sp-navi-toggle .menu,
+  .sp-navi-toggle .close {
+    position: absolute;
+    bottom: 0;
+    left: -50%;
+    display: block;
+    width: 34px;
+    height: 11px;
+  }
+  .sp-navi-toggle .close {
+    display: none;
+  }
+  .sp-navi-toggle .bar {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #464646;
+  }
+  .sp-navi-toggle .bar:nth-of-type(1) {
+    top: 0;
+  }
+  .sp-navi-toggle .bar:nth-of-type(2) {
+    top: 5px;
+  }
+  .sp-navi-toggle .bar:nth-of-type(3) {
+    top: 10px;
+  }
+
+  /* close-button */
+
+  html.sidebar-is-open .sp-navi-toggle .bar:nth-of-type(1) {
+    top: 5px;
+    transform: rotate(45deg);
+  }
+  html.sidebar-is-open .sp-navi-toggle .bar:nth-of-type(2) {
+    top: 5px;
+    transform: rotate(-45deg);
+  }
+  html.sidebar-is-open .sp-navi-toggle .bar:nth-of-type(3) {
+    display: none;
+  }
+  html.sidebar-is-open .sp-navi-toggle .menu {
+    display: none;
+  }
+  html.sidebar-is-open .sp-navi-toggle .close {
+    display: block;
+  }
+
+  @media screen and (max-width: 767px) {
+    .sp-navi-toggle{
+      display: block;
+    }
+  }
+
+  /* sp-navi */
+
+  .sp-navi-box {
+    display: none;
+  }
+  .sp-navi {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    width: 100%;
+    height: 100vh;
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+  }
+  .sp-navi li {
+    padding: 20px 0;
+  }
+  .sp-navi li a {
+    display: block;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+  }
+  .sp-navi li a:hover {
+    text-decoration: underline;
+  }
+
+
+
+
+  @media screen and (max-width: 767px) {
+    html.sidebar-is-open .sp-navi-box {
+      display: block;
+    }
+    html.sidebar-is-open {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      overflow: hidden;
+      width: 100%;
+    }
+  }
+
+
+
+
+  /*.wrap {
+    display: inline-block;
+    -webkit-box-shadow: 0 0 70px #fff;
+    -moz-box-shadow: 0 0 70px #fff;
+    box-shadow: 0 0 70px #fff;
+    margin-top: 40px;*/
+
+  /* a little "umph" */
+
+  .atag-up {
+    color: #fff;
+    display: block;
+  }
+  .atag {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+  }
+
+  ul {
+    list-style: none;
+    position: relative;
+    text-align: left;
+  }
+
+  li {
+    float: left;
+  }
+
+  /* clear'n floats */
+  ul:after {
+    clear: both;
+  }
+
+  ul:before,
+  ul:after {
+      content: " ";
+      display: table;
+  }
+
+  /*nav {
+    position: relative;
+    background: #2B2B2B;
+    background-image: -webkit-linear-gradient(bottom, #2B2B2B 7%, #333333 100%);
+    background-image: -moz-linear-gradient(bottom, #2B2B2B 7%, #333333 100%);
+    background-image: -o-linear-gradient(bottom, #2B2B2B 7%, #333333 100%);
+    background-image: linear-gradient(bottom, #2B2B2B 7%, #333333 100%);
+    text-align: center;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 1px #0E0E0E;
+    -webkit-box-shadow: 2px 2px 3px #888;
+    -moz-box-shadow: 2px 2px 3px #888;
+    box-shadow: 2px 2px 3px #888;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+  }:*/
+
+  /* prime */
+
+  .primary-up{
+    margin: auto auto auto 180px;
+  }
+
+  ul.primary-up li a {
+    display: block;
+    padding: 15px 15px;
+    border-right: 1px solid #3D3D3D;
+  }
+
+  ul.primary-up li:last-child a {
+    border-right: none;
+  }
+
+  ul.primary-up li a:hover {
+
+    color: #000;
+  }
+  .primary{
+    margin: auto auto auto 180px;
+  }
+
+  ul.primary li a {
+    display: block;
+    padding: 10px 10px;
+    border-right: 1px solid #3D3D3D;
+  }
+
+  ul.primary li:last-child a {
+    border-right: none;
+  }
+
+  ul.primary li a:hover {
+
+    color: #000;
+  }
+
+  /* subs */
+  ul.sub {
+    position: absolute;
+    z-index: 200;
+    box-shadow: 2px 2px 0 #BEBEBE;
+    width: 35%;
+    display:none;
+  }
+
+  ul.sub li {
+    float: none;
+    margin: 0;
+  }
+
+  ul.sub li a {
+    border-bottom: 1px dotted #ccc;
+    border-right: none;
+    color: #000;
+    padding: 10px 10px;
+  }
+
+  ul.sub li:last-child a {
+    border-bottom: none;
+  }
+
+  ul.sub li a:hover {
+    color: #000;
+    background: #eeeeee;
+  }
+
+  /* sub display*/
+  ul.primary li:hover ul {
+    display: block;
+    background: #fff;
+  }
+
+  /* keeps the tab background white */
+  ul.primary li:hover a {
+    background: #fff;
+    color: #666;
+    text-shadow: none;
+  }
+
+  ul.primary li:hover > a{
+    color: #000;
+  }
+
+
+  .heart{
+    fill: white;
+  }
+  .cart{
+    fill: white;
+  }
+
+ /* .image{
+   text-align: left;
+    display: block;
+    background-color: #ffffff;
+  }*/
+
+.Aimage{
+	text-align: left;
+    display: block;
+}
+
+  /* password */
+  input::-ms-reveal {
+    visibility: hidden;
+  }
+
+
+  @media only screen and (max-width: 600px) {
+    .decor {
+      padding: 3px;
+    }
+
+    .wrap-up {
+      width: 100%;
+      margin-top: 0px;
+    }
+    .wrap {
+      width: 100%;
+      margin-top: 0px;
+    }
+
+     li {
+      float: none;
+    }
+
+    ul.primary li:hover a {
+      background: none;
+      color: #8B8B8B;
+      text-shadow: 1px 1px #000;
+    }
+
+    ul.primary li:hover ul {
+      display: block;
+      background: #272727;
+      color: #fff;
+    }
+
+    ul.sub {
+      display: block;
+      position: static;
+      box-shadow: none;
+      width: 100%;
+    }
+
+    ul.sub li a {
+      background: #272727;
+      border: none;
+      color: #8B8B8B;
+    }
+
+    ul.sub li a:hover {
+      color: #ccc;
+      background: none;
+    }
+  }
+/*チェックボックス*/
+
+.searchbox{
+  position: relative;
+  left: 500px;
+  top: 20px;
+}
+.heartsvg{
+  position:relative;
+  left: 500px;
+  top: 0px;
+}
+.cartsvg{
+  position:relative;
+  left: 500px;
+  top: 0px;
+  background-color: #00dfff;
+}
