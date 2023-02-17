@@ -11,7 +11,7 @@ public class MySQLConnectionManager extends ConnectionManager{
 	public Connection getConnection(){
 		if(cn == null){
 			try{
-	            Class.forName("com.mysql.jdbc.Driver");
+	            Class.forName("com.mysql.cj.jdbc.Driver");
 
 	            cn = DriverManager.getConnection("jdbc:mysql://database-1.ckc4m0kqylkj.us-east-1.rds.amazonaws.com/orcl?characterEncoding=UTF-8&serverTimezone=JST","info","pro");
 	            System.out.println("接続完了");
