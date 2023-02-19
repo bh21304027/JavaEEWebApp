@@ -19,7 +19,7 @@ public abstract class AbstractDaoFactory{
         AbstractDaoFactory factory = null;
         Properties prop = new Properties();
         try{
-            prop.load(new FileInputStream("C:/pleiades/workspace/Ano1/WebContent/properties/dao.properties"));
+            prop.load(new FileInputStream("/home/properties/dao.properties"));
 
             String name = prop.getProperty(type);
 
