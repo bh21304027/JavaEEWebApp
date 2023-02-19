@@ -2,7 +2,6 @@ package command.user;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -42,7 +41,9 @@ public class UserLoginCommand extends AbstractCommand {
 		AbstractDaoFactory factory = AbstractDaoFactory.getFactory("mysql");
 		UserDao userdao = factory.getUserDao();
 
-		String userida = userdao.getUser(userid,hashuserpass);
+		String[] userida = userdao.getUser(userid,hashuserpass);
+		String user = userida[0];
+		String username = userida[1];
 		System.out.println(userida);
 		//ConnectionManager.getInstance("mysql").commit();
 
@@ -50,10 +51,12 @@ public class UserLoginCommand extends AbstractCommand {
 
 		HttpServletRequest req = (HttpServletRequest) reqc.getRequest();
 		HttpSession session = req.getSession();
-		session.setAttribute("userid", userida);
-		if(userida !=null) {
-		session.setAttribute("productattribute", new HashMap<Object, Object>());
-		resc.setTarget("top");
+		session.setAttribute("userid", user);
+		session.setAttribute("username", username);
+		if(user !=null) {
+			req.setAttribute("message", "ようこそAnodidas。");
+		//session.setAttribute("productattribute", new HashMap<Object, Object>());
+		resc.setTarget("welcome");
 		}else {
 			req.setAttribute("message", "パスワードもしくはメールアドレスが間違っています。");
 			resc.setTarget("login");

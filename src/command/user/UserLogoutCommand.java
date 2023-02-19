@@ -17,8 +17,8 @@ public class UserLogoutCommand extends AbstractCommand {
 		HttpSession session = req.getSession();
 
 		session.invalidate();
-
-		resc.setTarget("top");
+		req.setAttribute("message", "ログアウトしました。ゲストになります。");
+		resc.setTarget("welcome");
 		return resc;
 	}
 

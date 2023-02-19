@@ -95,7 +95,10 @@ public class MySQLProductInformationDao implements ProductInformationDao {
 				sp.setShoesstock(rs.getInt(7));
 				sp.setShoessize(rs.getFloat(8));
 				sp.setProductid(rs.getInt(9));
-			list.add(sp);
+				if(sp.getShoesstock()>0) {
+					list.add(sp);
+				}
+
 			}
 
 
@@ -289,5 +292,122 @@ public class MySQLProductInformationDao implements ProductInformationDao {
 		}
 		return sp;
 	}
+
+
+
+	//済
+	@Override
+	public void upProductCount (int productid,int count) {
+		Connection cn = null;
+		PreparedStatement st = null;
+		ResultSet rs = null;
+
+
+
+
+
+		try{
+			cn = ConnectionManager.getInstance("mysql").getConnection();
+
+
+			String sql = "update product_table set  Product_stock = ? where Product_id=?";
+			st = cn.prepareStatement(sql);
+
+			st.setInt(1,count);
+			st.setInt(2,productid);
+
+			st.executeUpdate();
+
+		}catch(SQLException e){
+			ConnectionManager.getInstance("mysql").rollback();
+			throw new ResourceAccessException(e.getMessage(),e);
+		}finally{
+			try{
+				if(rs!=null){
+					rs.close();
+				}
+				if(st != null){
+    				st.close();
+    			}
+			}catch(SQLException e){
+				throw new ResourceAccessException(e.getMessage(),e);
+			}
+		}
+
+	}
+
+
+	//済
+		@Override
+		public ShoesBean getProductListInformationRandom(int shoesid) {
+			Connection cn = null;
+			PreparedStatement st = null;
+			ResultSet rs = null;
+			ShoesBean sb = new ShoesBean();
+			//ArrayList<ShoesBean> ShoesList = new ArrayList<ShoesBean>();
+
+
+
+
+			try{
+				cn = ConnectionManager.getInstance("mysql").getConnection();
+
+
+				String sql = "select * from shoes_table where shoes_id = ?";
+
+				st = cn.prepareStatement(sql);
+
+				st.setInt(1,shoesid);
+
+
+				rs = st.executeQuery();
+
+				while(rs.next()) {
+
+
+					sb.setShoesid(rs.getInt(1));
+					sb.setShoesname(rs.getString(2));
+					sb.setShoesprice(rs.getInt(3));
+					sb.setCategoryid(rs.getInt(4));
+					sb.setShoespicture(rs.getString(6));
+				}
+
+
+
+			}catch(SQLException e){
+				ConnectionManager.getInstance("mysql").rollback();
+				throw new ResourceAccessException(e.getMessage(),e);
+			}finally{
+				try{
+					if(rs!=null){
+						rs.close();
+					}
+					if(st != null){
+	    				st.close();
+	    			}
+				}catch(SQLException e){
+					throw new ResourceAccessException(e.getMessage(),e);
+				}
+			}
+			return sb;
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }

@@ -11,4 +11,6 @@ public interface ProductInformationDao {
 	public ArrayList<ShoesBean> getProductListInformation(int gender);
 	public ArrayList<ShoesBean> getProductListInformation(int gender,int category);
 	public ShoesProductBean getProduct(int productid);
+	public void upProductCount (int productid,int count);
+	public ShoesBean getProductListInformationRandom(int shoesid);
 }

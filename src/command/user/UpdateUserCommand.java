@@ -1,5 +1,7 @@
 package command.user;
 
+import javax.servlet.http.HttpServletRequest;
+
 import bean.AddressBean;
 import bean.UserBean;
 import command.AbstractCommand;
@@ -32,6 +34,22 @@ public class UpdateUserCommand extends AbstractCommand {
 		a.setState(Boolean.valueOf(reqc.getParameter("state")[0]));
 
 
+		if(reqc.getParameter("phonenumber")[0].isEmpty() ||
+			reqc.getParameter("address")[0].isEmpty() || reqc.getParameter("postcode")[0].isEmpty() )
+			{
+
+
+			HttpServletRequest req = (HttpServletRequest) reqc.getRequest();
+			req.setAttribute("message", "入力に不足があります。");
+			resc.setTargetcommand("inputupdateuser");
+			return resc;
+
+
+			}else {
+
+
+
+
 
 
 		//ConnectionManager.getInstance("mysql").beginTransaction();
@@ -45,9 +63,15 @@ public class UpdateUserCommand extends AbstractCommand {
 		//ConnectionManager.getInstance("mysql").commit();
 
 		//ConnectionManager.getInstance("mysql").closeConnection();
-
-		resc.setTarget("top");
+		HttpServletRequest req = (HttpServletRequest) reqc.getRequest();
+		req.setAttribute("message", "ユーザー更新完了");
+		resc.setTarget("welcome");
 		return resc;
+
+
+
+
+	}
 	}
 
 }

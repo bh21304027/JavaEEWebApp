@@ -28,7 +28,7 @@ body {
     background: #fff;
     font-family: helvetica, arial, serif;
     font-size: 13px;
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
     text-align: center;
     font-family: "Yu Gothic Medium", "游ゴシック Medium",
 	"YuGothic", "游ゴシック体", "ヒラギノ角ゴ Pro W3", "sans-serif";
@@ -44,9 +44,9 @@ header{
   margin:auto;
   }
   /*上の部分のヘッダー*/
-  .header-div{
+  /*.header-div{
     background: linear-gradient(to right, #0000, #3a3a3a);
-  }
+  }*/
   .header-a{
     text-decoration: none;
    color: #ffff;
@@ -54,16 +54,20 @@ header{
   }
   .header-ul{
     list-style: none;
-   margin: auto auto auto 1000px;
+   /*margin: auto auto auto 1000px;*/
+   margin: 0;
    display: flex;
+   justify-content: flex-end;
+   height: 2.2rem;
+    line-height: 2.2rem;
   }
 .header-li{
-  margin: 0 0 0 15px;
+  margin: 0 5% 0 0;
    font-size: 14px;
    list-style-type: none;
 
    color: #ffff;
-   flex-grow: 1;
+   /*flex-grow: 1;*/
    text-align: center;
 
 }
@@ -72,8 +76,8 @@ header{
 }
 .pc-nav{
   margin: 0 0 0 auto;
+  background: linear-gradient(to left top,  #252525, #252525 10%, #111 40%, #000);
 }
-
 
   /* .logo */
 
@@ -313,7 +317,7 @@ header{
   /* prime */
 
   .primary-up{
-    margin: auto auto auto 180px;
+    margin: 0 0 0 180px;
   }
 
   ul.primary-up li a {
@@ -331,7 +335,7 @@ header{
     color: #000;
   }
   .primary{
-    margin: auto auto auto 180px;
+    margin: 0 10rem 0 10rem;
   }
 
   ul.primary li a {
@@ -348,6 +352,12 @@ header{
 
     color: #000;
   }
+
+  .setright{
+    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+    }
 
   /* subs */
   ul.sub {
@@ -473,17 +483,23 @@ header{
 
 .searchbox{
   position: relative;
-  left: 500px;
+  /*left: 500px;*/
   top: 20px;
 }
 .heartsvg{
   position:relative;
-  left: 500px;
+  /*left: 500px;*/
   top: 0px;
 }
 .cartsvg{
   position:relative;
-  left: 500px;
+  /*left: 500px;*/
   top: 0px;
   background-color: #00dfff;
 }
+.setright{
+	text-align: right;
+    display: flex;
+    justify-content: flex-end;
+}
+

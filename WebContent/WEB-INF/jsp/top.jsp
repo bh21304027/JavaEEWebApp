@@ -1,52 +1,44 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-
+<%@ page
+	language="java"
+	pageEncoding="UTF-8"
+    contentType="text/html;charset=UTF-8"
+    %>
+    <%--JSTL 1.1.2 core タグライブラリ--%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>anodidas</title>
-<link rel="stylesheet"type="text/css" href="<%=request.getContextPath() %>/css/showproduct.css">
+    <title>Anodidas</title>
+<link rel="stylesheet"type="text/css" href="<%=request.getContextPath() %>/css/top.css">
 <link rel="stylesheet"type="text/css" href="<%=request.getContextPath() %>/css/header2.css">
-<style>
-.example{
-    display: block;
-    width: 300px;
-    padding: 15px 0;
-    margin: auto;
-      background: #333;
-    color: #ffff;
+<link rel="stylesheet"type="text/css" href="<%=request.getContextPath() %>/css/all.css">
+<script src="<%=request.getContextPath() %>/js/header.js"></script>
 
-    text-decoration: none;
-    text-align: center;
-}
-.example:hover{
-     background: #ffffff;
-    color: #333;
-}
-</style>
 </head>
 <body>
- <header>
-        <div>
-        <header class="header-div">
-        <nav class="pc-nav">
-            <ul class="header-ul">
-                <li class="header-li"><a class="header-a" href="inputupdateuser">ユーザー情報の変更</a></li>
-                <li class="header-li"><a class="header-a" href="showorder">注文検索</a></li>
-                <li class="header-li"><a class="header-a" href="inputlogin">ログイン</a></li>
+ <div>
+  <header class="header-div">
+   <nav class="pc-nav">
+    <ul class="header-ul">
+     <li class="header-li"><a class="header-a" href="inputupdateuser">ユーザー情報の変更</a></li>
+     <li class="header-li"><a class="header-a" href="showorder">注文履歴</a></li>
+     <li class="header-li">
+      <c:if test="${sessionScope.userid == null}" var="flg" />
+       <c:if test="${flg}">
+        <a class="header-a"  href="inputlogin">ログイン</a>
+       </c:if>
+       <c:if test="${!flg}">
+        <a class="header-a"  href="logout">ログアウト</a>
+       </c:if>
+	 </li>
+    </ul>
+   </nav>
 
-            </ul>
-        </nav>
-        </header>
-        </div>
 
-        <!--<div class="image"><a href=""><img src="images/anodidasu.png" class=""></a></div>-->
-          <div class="wrap">
-<span class="decor"></span>
-                <nav>
+
+
+
+   <nav>
                   <ul class="primary">
 
 
@@ -72,6 +64,7 @@
                         <li><a class="atag" href="">キッズ</a></li>
                       </ul>
                     </li>
+                    <div class="setright">
                     <li>
                     <div class="searchbox">
                       <form id="form4" action="自分のサイトURL" method="get">
@@ -94,17 +87,28 @@
 						<title>icon</title>
                           <path d="M2.635 28.035h4.148l-3.784-3.756zM3.251 21.869l6.166 6.166h2.747l-8.688-8.632zM3.728 17.020l11.043 11.015h2.747l-13.537-13.509zM23.403 6.931h-3.363c0-3.335-2.691-6.026-6.026-6.026s-6.026 2.691-6.026 6.026h-3.363l-0.42 5.045 15.948 16.060h5.241l-1.99-21.105zM14.014 2.39c2.494 0 4.54 2.046 4.54 4.54h-9.053c0-2.494 2.018-4.54 4.512-4.54z">
                           </path></svg></a></div></li>
+                          </div>
 
                   </ul>
                 </nav>
 
 
 
-<script src="<%=request.getContextPath() %>/js/header.js"></script>
 
 
- </div></header>
-<h1>anodidas</h1>
+  </header>
+ </div>
+
+
+
+
+
+
+
+    <h1>Anodidas</h1>
+
+
+
 
 
 <%--
@@ -115,17 +119,44 @@
     --%>
 
 
-    <a>${sessionScope.userid}</a><br>
+
+     <a>${message}</a><br>
+
     <c:if test="${sessionScope.userid == null}" var="flg" />
 					<c:if test="${flg}">
-						<a href="inputlogin"><span>ログイン</span>
-						</a>
+					<a>ゲスト</a><br>
+					<div class="button1">
+						<a href="inputlogin"><span>ログイン</span></a>
+					</div>
 					</c:if>
 					<c:if test="${!flg}">
-						<a href="logout"><span>ログアウト</span>
-						</a>
+					<a>ユーザーID：${sessionScope.userid}</a><br>
+    				<a>ユーザー名：${sessionScope.username}</a><br>
+    				<div class="button1">
+						<a href="logout"><span>ログアウト</span></a>
+					</div>
 					</c:if>
 
+					<ul class="showul">
+					<c:forEach var="shoes" items="${data}" varStatus="itemStatus">
+
+		<c:if test="${itemStatus.first || itemStatus.index % 4 == 0}">
+
+	</c:if>
+		<li class="showli"><div class="msr_box01">
+			<a href="showproductdetails?shoesid=${shoes.shoesid}">
+
+					<img src="<%=request.getContextPath() %>/image/${shoes.shoespicture}" width="210" height="180" alt="img"/><br>
+						カテゴリ：${shoes.categoryid}<br>
+						<h3 class="ttl">商品名：${shoes.shoesname}</h3>
+						<p>価格：${shoes.shoesprice}</p></a>
+						</div></li>
+			<c:if test="${itemStatus.last || itemStatus.count % 4 == 0}">
+
+	</c:if>
+
+		</c:forEach>
+</ul>
 
 </body>
 </html>

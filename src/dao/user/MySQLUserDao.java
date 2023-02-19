@@ -165,14 +165,14 @@ public class MySQLUserDao implements UserDao{
 	}
 
 	@Override//済み
-	public String getUser(String uid, String upass) {
+	public String[] getUser(String uid, String upass) {
 		Connection cn = null;
 		PreparedStatement st = null;
 		ResultSet rs = null;
 
 
 
-		String userid =null;
+		String userid[] =new String[2];
 
 		try{
 
@@ -180,7 +180,7 @@ public class MySQLUserDao implements UserDao{
 			cn.setAutoCommit(false);
 
 
-			String sql = "select user_id from user_table where User_id = ? and User_pass = ?";
+			String sql = "select user_id,user_name from user_table where User_id = ? and User_pass = ?";
 
 
 			st = cn.prepareStatement(sql);
@@ -192,7 +192,8 @@ public class MySQLUserDao implements UserDao{
 
 			while (rs.next()) {
 
-				userid = rs.getString(1);
+				userid[0] = rs.getString(1);
+				userid[1] = rs.getString(2);
 				System.out.println(userid);
 				}
 

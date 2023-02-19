@@ -14,7 +14,7 @@ public abstract class ConnectionManager{
 		if(conn == null){
 	        Properties prop = new Properties();
 	        try{
-	            prop.load(new FileInputStream("/home/properties/connectionmanager.properties"));
+	            prop.load(new FileInputStream("C:/pleiades/workspace/Ano1/WebContent/properties/connectionmanager.properties"));
 
 	            String name = prop.getProperty(type);
 

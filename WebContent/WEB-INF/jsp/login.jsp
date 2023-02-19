@@ -4,49 +4,39 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>ログイン</title>
-<link rel="stylesheet"type="text/css" href="<%=request.getContextPath() %>/css/login.css">
-<link rel="stylesheet"type="text/css" href="<%=request.getContextPath() %>/css/header.css">
-<style>
-.example{
-    display: block;
-    width: 300px;
-    padding: 15px 0;
-    margin: auto;
-      background: #333;
-    color: #ffff;
+    <html>
+        <head>
+            <title>ログイン</title>
+            <link rel="stylesheet"type="text/css" href="<%=request.getContextPath() %>/css/login.css">
+<link rel="stylesheet"type="text/css" href="<%=request.getContextPath() %>/css/header2.css">
+<link rel="stylesheet"type="text/css" href="<%=request.getContextPath() %>/css/all.css">
+<script src="<%=request.getContextPath() %>/js/header.js"></script>
 
-    text-decoration: none;
-    text-align: center;
-}
-.example:hover{
-     background: #ffffff;
-    color: #333;
-}
-</style>
 </head>
 <body>
- <header>
-        <div>
-        <header class="header-div">
-        <nav class="pc-nav">
-            <ul class="header-ul">
-                <li class="header-li"><a class="header-a" href="inputupdateuser">ユーザー情報の変更</a></li>
-                <li class="header-li"><a class="header-a" href="#">注文検索</a></li>
-                <li class="header-li"><a class="header-a" href="inputlogin">ログイン</a></li>
+ <div>
+  <header class="header-div">
+   <nav class="pc-nav">
+    <ul class="header-ul">
+     <li class="header-li"><a class="header-a" href="inputupdateuser">ユーザー情報の変更</a></li>
+     <li class="header-li"><a class="header-a" href="showorder">注文履歴</a></li>
+     <li class="header-li">
+      <c:if test="${sessionScope.userid == null}" var="flg" />
+       <c:if test="${flg}">
+        <a class="header-a"  href="inputlogin">ログイン</a>
+       </c:if>
+       <c:if test="${!flg}">
+        <a class="header-a"  href="logout">ログアウト</a>
+       </c:if>
+	 </li>
+    </ul>
+   </nav>
 
-            </ul>
-        </nav>
-        </header>
-        </div>
 
-        <!--<div class="image"><a href=""><img src="images/anodidasu.png" class=""></a></div>-->
-          <div class="wrap">
-<span class="decor"></span>
-                <nav>
+
+
+
+   <nav>
                   <ul class="primary">
 
 
@@ -72,6 +62,7 @@
                         <li><a class="atag" href="">キッズ</a></li>
                       </ul>
                     </li>
+                    <div class="setright">
                     <li>
                     <div class="searchbox">
                       <form id="form4" action="自分のサイトURL" method="get">
@@ -94,16 +85,18 @@
 						<title>icon</title>
                           <path d="M2.635 28.035h4.148l-3.784-3.756zM3.251 21.869l6.166 6.166h2.747l-8.688-8.632zM3.728 17.020l11.043 11.015h2.747l-13.537-13.509zM23.403 6.931h-3.363c0-3.335-2.691-6.026-6.026-6.026s-6.026 2.691-6.026 6.026h-3.363l-0.42 5.045 15.948 16.060h5.241l-1.99-21.105zM14.014 2.39c2.494 0 4.54 2.046 4.54 4.54h-9.053c0-2.494 2.018-4.54 4.512-4.54z">
                           </path></svg></a></div></li>
+                          </div>
 
                   </ul>
                 </nav>
 
 
 
-<script src="<%=request.getContextPath() %>/js/header.js"></script>
 
 
- </div></header>
+  </header>
+ </div>
+
         <div class="form-wrapper">
         <h1 class="log">ログインページ</h1>
 

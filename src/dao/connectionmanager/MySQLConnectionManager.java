@@ -11,9 +11,9 @@ public class MySQLConnectionManager extends ConnectionManager{
 	public Connection getConnection(){
 		if(cn == null){
 			try{
-	            Class.forName("com.mysql.cj.jdbc.Driver");
+	            Class.forName("com.mysql.jdbc.Driver");
 
-	            cn = DriverManager.getConnection("jdbc:mysql://database-1.ckc4m0kqylkj.us-east-1.rds.amazonaws.com:3306/orcl?characterEncoding=UTF-8&serverTimezone=JST","info","pro");
+	            cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/orcl?characterEncoding=UTF-8&serverTimezone=JST","info","pro");
 	            System.out.println("接続完了");
         	}catch(ClassNotFoundException e){
             	e.printStackTrace();
